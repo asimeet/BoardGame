@@ -89,7 +89,7 @@ class BoardGame {
                 }
                 if(item.ammount )
                 return {
-                name: item.name,
+                name: item.playerObj.name,
                 ammount: item.ammount
             }});
  
