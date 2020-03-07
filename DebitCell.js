@@ -1,13 +1,13 @@
 let BoardCell = require("./boardCell");
-class CreditCell extends BoardCell {
+class DebitCell extends BoardCell {
     constructor(cellProps) {
         super(cellProps);
     }
 
 
     calcAmmount(playerAmmount) {
-        return playerAmmount = playerAmmount + this.transactionAmmount;
+        return playerAmmount = playerAmmount + this.ammount;
     }
 }
 
-module.exports = CreditCell;
+module.exports = DebitCell;

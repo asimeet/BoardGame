@@ -48,7 +48,7 @@ class BoardGame {
     }
     createPlayers(noOfPlayers) {
 
-        for(let i = 0 ; i<noOfPlayers ;i ++){
+        for(let i = 1 ; i<= noOfPlayers ;i ++){
             let playerObj = new BoardPlayer(i);
             this.playersProfile.push({
                 playerObj :playerObj,
@@ -59,6 +59,9 @@ class BoardGame {
         }
     }
     updatePosition(diceInput, playerName) {
+        if(this.maxTurnsReached() === true){
+            return;
+        }
         if (diceInput < 2 || diceInput > 12) {
             throw new Error(`Dice Input should be between 2 to 12, current Dice Input is ${diceInput}`);
         }
@@ -93,13 +96,13 @@ class BoardGame {
             let message = {
                 info: "Game Over",
                 results: JSON.stringify(results),
-                winner: winner.name
+                winner: winner.playerObj.name
             }
             console.log( JSON.stringify(message));
         }
     }
     getCellInfo(pos) {
-        let cell = this.boardCells.find(item => item.type = this.boardCellPattern[pos]);
+        let cell = this.boardCells.find(item => item.type == this.boardCellPattern[pos]);
         return cell;
     }
     executeTransaction(cell,currentPlayer) {

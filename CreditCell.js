@@ -6,7 +6,7 @@ class CreditCell extends BoardCell {
 
 
     calcAmmount(playerAmmount) {
-        return playerAmmount = playerAmmount + this.transactionAmmount;
+        return playerAmmount = playerAmmount + this.ammount;
     }
 }
 
